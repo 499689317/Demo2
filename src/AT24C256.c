@@ -37,7 +37,7 @@ unsigned char AT24C256ReadByte(unsigned short addr) {
     return data;
 }
 
-void AT24C256WritePage(unsigned short addr,const unsigned char* data, unsigned char len) {
+void AT24C256WritePage(unsigned short addr,const unsigned char* data, unsigned short len) {
     while (len > 0)
     {
         // 检测写入应答信号是否为0，0表示可以进行写入操作了
@@ -78,7 +78,7 @@ void AT24C256WritePage(unsigned short addr,const unsigned char* data, unsigned c
 }
 
 // 连续读取字节数据时，使用ack信号控制即可
-void AT24C256ReadPage(unsigned short addr, unsigned char* data, unsigned char len) {
+void AT24C256ReadPage(unsigned short addr, unsigned char* data, unsigned short len) {
     // 先拿到写控制权
     while (1)
     {
